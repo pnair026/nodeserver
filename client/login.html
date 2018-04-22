@@ -1,0 +1,120 @@
+<html>
+    <style>
+        form {
+            border:1px solid black;
+            text-align:left;
+				width:100%;
+				height:80%;
+            padding: 2em;
+            color:black;
+            background-color:white;
+            background-image:url("./pics/z.png");
+            background-position:center;
+            text-indent: 00px;
+            line-height: 2;
+            text-shadow:2px 2px 4px #000000;
+            font-style: times;
+            font-size: 20px;
+            font-weight: bold;
+            box-sizing: border-box;
+            
+        }
+        header {
+            border:1px solid black;
+            border-style: groove;
+            background-color: rgba(34, 11, 240, 0.849);
+            padding: 1px;
+            color: blue;
+            text-align: left;  
+            text-decoration: none;
+            text-indent: 30px;
+            line-height: 1.2;
+            font-style: times;
+            font-size: 30px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000000;
+            box-sizing: border-box;
+              }
+            a {
+            color: black;
+            font-style: times;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px #000000;
+            text-decoration: underline;
+            font-size: 15px;
+              }
+
+    </style>
+    <header>
+        <h1>NotePPad</h1>
+    </header>
+    
+    <body>
+        <form action = "http://localhost:8086/login_password" method = "POST">
+            
+        UserName:<input type="text" id="UserName" name = "UserName" onkeyup="keyEvent()"  placeholder="Enter the User name"><br>
+            <p id='result'></p>
+        Password:<input type="text" id="Password" name = "Password" onkeyup="keyEvent1()"  placeholder="Enter the Password"><br>
+                <p id='result1'></p>
+        <input type="submit" id='submit' value="submit" />
+
+        <a href="http://localhost:8086/getUsers"><input type="Button" id='getuser' value="Get User"/></a><br>
+        <a href="/registration.html">Create User Account</a><br>
+        <a href="/changepassword.html">Change Password</a><br>
+        <a href="/forgetpassword.html">Forget  Password</a>
+    </form>
+    <div id='image1'>
+                   <h3>Made by &copy; Prashant</h3>
+    </div>
+    </body>
+    <script>
+        var objUserName = document.getElementById("UserName");
+        var objPassword = document.getElementById("Password");
+        var objResult = document.getElementById('result');
+        var objResult1 = document.getElementById('result1');
+        function keyEvent(){
+            
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objUserName.value ==''){
+                objResult.innerHTML = '';
+                objButton.disabled = true;
+            }
+            else if(objUserName.value.length >=10){
+                objResult.innerHTML = 'Length should not be greater than 10';
+                objButton.disabled = true;
+            }
+            else if (!objUserName.value.match(numbers)){
+                objResult.innerHTML = 'value should be numeric';
+                objButton.disabled = true;
+            }
+            else{
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent1(){
+             var numbers1 = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objPassword.value ==''){
+                objResult1.innerHTML = '';
+                objButton.disabled = true;
+            }
+            else if(objPassword.value.length >=8){
+                objResult1.innerHTML = 'Length should not be greater than 8';
+                objButton.disabled = true;
+            }
+            else if (!objPassword.value.match(numbers1)){
+                objResult1.innerHTML = 'value should be numeric';
+                objButton.disabled = true;
+            }
+            else{
+                objButton.disabled = false;
+            }
+        }
+    </script>
+   
+</html>

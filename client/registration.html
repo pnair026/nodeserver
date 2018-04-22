@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html>
+    <style>
+         header,footer {
+            border:2px solid black;
+            padding: 1em;
+            color: white;
+            background-color:blue;
+            text-align: left;
+            color: white;
+            text-shadow: 2px 2px 4px #000000;
+            
+        }
+         form {
+            border:2px solid black;
+            text-align:center;
+            padding: 0em;
+            color: white;
+            background-image:url("./pics/m-5.png");
+            background-position:center;
+			background-color:black;
+            background-size: 1330px 610px;;
+            background-repeat:no-repeat;
+            text-align: center;
+            box-sizing: border-box
+        }
+      
+        
+    </style>
+    <header>
+        <h1>NotePPad</h1>
+    </header>
+    <body>
+        
+      
+        <form action = "http://localhost:8086/registration_form" method = "POST">
+        <!-- <h1>REGISTRATION FORM</h1> -->
+        <!-- <label>First Name:</label><br> -->
+        First Name: <input type = "text" id= "FirstName" onkeyup='keyEvent()' name = "FirstName" placeholder="Enter the first name">  <br>
+            <p id='result'></p> 
+        <!-- <label>Last Name:</label><br> -->
+        Last Name: <input type = "text" id= "LastName" onkeyup='keyEvent1()' name = "LastName" placeholder="Enter the last name">  <br>
+            <p id='result1'></p>
+        <!-- <label>Age:</label><br> -->
+        UserName: <input type="text" id="UserName" onkeyup='keyEvent2()'  name = "UserName" placeholder="Enter the UserName"><br>
+            <p id='result2'></p>
+        <!-- <label>Mobile Number:</label><br> -->
+        Password: <input type="text" id="Password" onkeyup='keyEvent3()' name = "Password" placeholder="Enter the Password"><br>
+            <p id='result3'></p>
+        <!-- <label>Email:</label><br> -->
+        Email:<input type="email"  id="Email" onclick='checkEmail()' name = "Email" placeholder="Enter the Email"><br>
+            <p id='result4'></p>
+        <!-- <label>Address:</label><br> -->
+        Address:<input type="text" id="Address" onkeyup='keyEvent5()' name = "Address" placeholder="Enter the Address"><br>
+            <p id='result5'></p>
+        <!-- <label>City:</label><br> -->
+        City:<input type="text" id="City" onkeyup='keyEvent6()' name = "City" placeholder="Enter the City"><br>
+            <p id='result6'></p>
+        <!-- <label>State:</label><br> -->
+        State:<input type="text" id="State" onkeyup='keyEvent7()'  name = "State" placeholder="Enter the State"><br>
+            <p id='result7'></p>
+        <!-- <label>Country:</label><br> -->
+        Country:<input type="text" id="Country" onkeyup='keyEvent8()' name = "Country" placeholder="Enter the Country Name"><br>
+            <p id='result8'></p>
+        <!-- <label>Pin Code:</label><br> -->
+        PinCode:<input type="text" id="PinCode" onkeyup='keyEvent9()'  name = "PinCode" placeholder="Enter the Pin Code"><br>
+            <p id='result9'></p>
+            <div>
+                <label>Gender:-</label>
+                <input type="radio" name="tech" value="male">Male
+                <Input type="radio" name="tech" value="Female">Female
+            </div>
+        
+        <input type = "submit"  value = "Submit">
+         </form>
+   
+    
+    </body>
+     <script>
+        //var objFirstName = document.getElementsByTagName('input');
+        var objFirstName = document.getElementById('FirstName');
+        var objLastName = document.getElementById("LastName");
+        var objUserName = document.getElementById("UserName");
+        var objPassword = document.getElementById("Password");
+        // var objEmail = document.getElementById("Email");
+        var objAddress = document.getElementById("Address");
+        var objCity = document.getElementById("City");
+        var objState = document.getElementById("State");
+        var objCountry = document.getElementById("Country");
+        var objPinCode= document.getElementById("PinCode");
+        var objResult = document.getElementById('result');
+        var objResult1 = document.getElementById('result1');
+        var objResult2 = document.getElementById('result2');
+        var objResult3 = document.getElementById('result3');
+        var objResult4 = document.getElementById('result4');
+        var objResult5 = document.getElementById('result5');
+        var objResult6 = document.getElementById('result6');
+        var objResult7 = document.getElementById('result7');
+        var objResult8 = document.getElementById('result8');
+        var objResult9 = document.getElementById('result9');
+        var objButton = document.getElementById('submit'); 
+        
+        // function clickEvent (){
+        //     console.log(" click show")
+        // }
+        function keyEvent(){
+            //console.log('Hello');
+            //var test=objFirstName.value;
+            //console.log(test);
+           //alert(objFirstName);
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objFirstName.value ==''){
+                objResult.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objFirstName.value.length >=10){
+                objResult.innerHTML = 'Length should not be greater than 10';
+                
+                objButton.disabled = true;
+            }
+            else if (!objFirstName.value.match(numbers)){
+                objResult.innerHTML = 'value should be numeric';
+                
+                objButton.disabled = true;
+            }
+            else{
+            
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent1(){
+            
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objLastName.value ==''){
+                objResult1.innerHTML = '';
+                objButton.disabled = true;
+            }
+            else if(objLastName.value.length >=8){
+                objResult1.innerHTML = 'Length should not be greater than 8';
+               
+                objButton.disabled = true;
+            }
+            else if (!objLastName.value.match(numbers)){
+                objResult1.innerHTML = 'value should be numeric';
+               
+                objButton.disabled = true;
+            }
+            else{
+               
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent2(){
+            //console.log("hi")
+             var numbers = /^[0-9]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objUserName.value ==''){
+                objResult2.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objUserName.value.length >=15){
+                objResult2.innerHTML = 'Length should not be greater than 15';
+               
+                objButton.disabled = true;
+            }
+            else if (!objUserName.value.match(numbers)){
+                objResult2.innerHTML = 'value should be numeric';
+               
+                objButton.disabled = true;
+            }
+            else{
+                
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent3(){
+            //console.log("hi1")
+          var numbers = /^[0-9]+$/;
+          //console.log(numbers)
+         //objResult.innerHTML = objFirstName.value;
+         //console.log(objResult.innerHTML)
+         if (objPassword.value ==''){
+             objResult3.innerHTML = '';
+            
+             objButton.disabled = true;
+         }
+         else if(objPassword.value.length >=15){
+             objResult3.innerHTML = 'Length should not be greater than 15';
+             
+             objButton.disabled = true;
+         }
+         else if (!objPassword.value.match(numbers)){
+             objResult3.innerHTML = 'value should be numeric';
+             
+             objButton.disabled = true;
+         }
+         else{
+             
+             objButton.disabled = false;
+         }
+     }
+    
+     
+function checkEmail() {
+
+var email = document.getElementById('Email');
+var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+if (!filter.test(email.value)) {
+//alert('Please provide a valid email address');
+objResult4.innerHTML = 'Please provide a valid email address';
+email.focus;
+return false;
+}
+
+        return true;
+
+}
+
+     function keyEvent5(){
+       // console.log("hi3")
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objAddress.value ==''){
+                objResult5.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objAddress.value.length >=20){
+                objResult5.innerHTML = 'Length should not be greater than 20';
+                
+                objButton.disabled = true;
+            }
+            // else if (!objAddress.value.match(numbers)){
+            //     objResult5.innerHTML = 'value should be numeric';
+            //     invalid= true;
+            //     objButton.disable = invalid
+            // }
+            else{
+               
+                objButton.disabled= false;
+            }
+        }
+        function keyEvent6(){
+            //console.log("hi4")
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objCity.value ==''){
+                objResult6.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objCity.value.length >=10){
+                objResult6.innerHTML = 'Length should not be greater than 10';
+               
+                objButton.disabled = true;
+            }
+            else if (!objCity.value.match(numbers)){
+                objResult6.innerHTML = 'value should be numeric';
+                
+                objButton.disabled = true;
+            }
+            else{
+                
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent7(){
+            //console.log("hi5")
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objState.value ==''){
+                objResult7.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objState.value.length >=10){
+                objResult7.innerHTML = 'Length should not be greater than 10';
+               
+                objButton.disabled = true;
+            }
+            else if (!objState.value.match(numbers)){
+                objResult7.innerHTML = 'value should be numeric';
+               
+                objButton.disabled = true;
+            }
+            else{
+               
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent8(){
+            //console.log("hi6")
+             var numbers = /^[0-9a-zA-Z ]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objCountry.value ==''){
+                objResult8.innerHTML = '';
+               
+                objButton.disabled = true;
+            }
+            else if(objCountry.value.length >=10){
+                objResult8.innerHTML = 'Length should not be greater than 10';
+               
+                objButton.disabled = true;
+            }
+            else if (!objCountry.value.match(numbers)){
+                objResult8.innerHTML = 'value should be numeric';
+               
+                objButton.disabled = true;
+            }
+            else{
+                
+                objButton.disabled = false;
+            }
+        }
+        function keyEvent9(){
+            //console.log("hi7")
+             var numbers = /^[0-9]+$/;
+             //console.log(numbers)
+            //objResult.innerHTML = objFirstName.value;
+            //console.log(objResult.innerHTML)
+            if (objPinCode.value ==''){
+                objResult9.innerHTML = '';
+            
+                objButton.disabled = true;
+            }
+            else if(objPinCode.value.length >=10){
+                objResult9.innerHTML = 'Length should not be greater than 10';
+               
+                objButton.disabled = true;
+            }
+            else if (!objPinCode.value.match(numbers)){
+                objResult9.innerHTML = 'value should be numeric';
+               
+                objButton.disabled = true;
+            }
+            else{
+               
+                objButton.disabled = false;
+            }
+        }
+    </script>
+    <footer><h3>Made by &copy; Prashant</h3></footer>
+</html>
